@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Dashboard - Hospital Management{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Doctor Dashboard</h2>
+    <p class="text-center text-muted">Welcome, Dr. {{ request.user.first_name|capfirst }} {{ request.user.last_name|capfirst }}</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5><i class="fas fa-notes-medical"></i> Patient Records</h5>
+                <p>Access and update patient records.</p>
+                <a href="#" class="btn btn-primary btn-block">View Records</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5><i class="fas fa-calendar-check"></i> Appointments</h5>
+                <p>Manage upcoming patient appointments.</p>
+                <a href="#" class="btn btn-primary btn-block">View Appointments</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5><i class="fas fa-user-edit"></i> Update Profile</h5>
+                <p>Modify your personal and professional details.</p>
+                <a href="#" class="btn btn-primary btn-block">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

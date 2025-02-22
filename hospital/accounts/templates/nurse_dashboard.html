@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Nurse Dashboard - Hospital Management{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Nurse Dashboard</h2>
+    <p class="text-center text-muted">Welcome, Nurse {{ request.user.first_name|capfirst }} {{ request.user.last_name|capfirst }}</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5><i class="fas fa-procedures"></i> Patient Records</h5>
+                <p>View and manage patient records assigned to you.</p>
+                <a href="#" class="btn btn-primary btn-block">View Records</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5><i class="fas fa-user-md"></i> Assist Doctors</h5>
+                <p>Collaborate with doctors for better patient care.</p>
+                <a href="#" class="btn btn-primary btn-block">Assist Now</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5><i class="fas fa-user-edit"></i> Update Profile</h5>
+                <p>Modify your personal and professional details.</p>
+                <a href="#" class="btn btn-primary btn-block">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

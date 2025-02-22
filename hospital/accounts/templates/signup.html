@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}Register - Hospital Management{% endblock %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="max-width: 500px; width: 100%;">
+        <h2 class="text-center mb-4">Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {% if errors %}
+            <div class="alert alert-danger mt-3">
+                <ul>
+                    {% for field, error_list in errors.items %}
+                    <li><strong>{{ field }}:</strong>
+                        <ul>
+                            {% for error in error_list %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <div class="mb-3">
+                <label for="first_name" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name"
+                    placeholder="Enter your first name" >
+            </div>
+
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name"
+                    placeholder="Enter your last name" >
+            </div>
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password"
+                    placeholder="Enter your password">
+            </div>
+
+            <div class="mb-3">
+                <label for="role" class="form-label">Role:</label>
+                <select class="form-select" id="role" name="role">
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="nurse">Nurse</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100 mt-3">Register</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small class="text-muted">Already have an account? <a href="{% url 'login' %}"
+                    class="text-decoration-none">Login here</a>.</small>
+        </div>
+    </div>
+</div>
+{% endblock %}
